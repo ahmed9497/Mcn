@@ -2,7 +2,7 @@ import React, {createContext, useState} from 'react';
 import auth from '@react-native-firebase/auth';
 // import firestore from '@react-native-firebase/firestore';
 // import { GoogleSignin } from '@react-native-community/google-signin';
-import { LoginManager, AccessToken } from 'react-native-fbsdk';
+import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
 
 export const AuthContext = createContext();
 
@@ -61,6 +61,7 @@ export const AuthProvider = ({children}) => {
         fbLogin: async () => {
           try {
             // Attempt login with permissions
+            await LoginManager.setLoginBehavior("web_only")
             const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
 
             if (result.isCancelled) {
@@ -76,7 +77,7 @@ export const AuthProvider = ({children}) => {
 
             // Create a Firebase credential with the AccessToken
             const facebookCredential = auth.FacebookAuthProvider.credential(data.accessToken);
-
+            console.log(facebookCredential);
             // Sign-in the user with the credential
             await auth().signInWithCredential(facebookCredential)
             // Use it only when user Sign's up, 
