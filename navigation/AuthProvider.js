@@ -61,9 +61,8 @@ export const AuthProvider = ({children}) => {
         fbLogin: async () => {
           try {
             // Attempt login with permissions
-            await LoginManager.setLoginBehavior("web_only")
+            await LoginManager.setLoginBehavior("web_only");
             const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
-
             if (result.isCancelled) {
               throw 'User cancelled the login process';
             }
