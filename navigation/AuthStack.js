@@ -8,7 +8,7 @@ import LoginScreen from '../screens/LoginScreen';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 // import AsyncStorage from '@react-native-community/async-storage';
-import { GoogleSignin } from '@react-native-community/google-signin';
+// import { GoogleSignin } from '@react-native-community/google-signin';
 
 const Stack = createStackNavigator();
 
@@ -26,9 +26,9 @@ const AuthStack = () => {
     //   }
     // }); // Add some error handling, also you can simply do setIsFirstLaunch(null)
   
-    GoogleSignin.configure({
-      webClientId: '608734121542-vt9j4jm3q5a03k7vqke9k6m4etf6d1la.apps.googleusercontent.com',
-    });
+    // GoogleSignin.configure({
+    //   webClientId: '608734121542-vt9j4jm3q5a03k7vqke9k6m4etf6d1la.apps.googleusercontent.com',
+    // });
   
   }, []);
 
